@@ -49,7 +49,7 @@
                 collapsible>
 
             {{-- BRAND --}}
-            <div class="ml-5 pt-5">{{ config('app.name') }}</div>
+            <div class="ml-5 pt-5"><x-mary-icon name="o-bookmark-square" />{{ config('app.name') }}</div>
 
             {{-- MENU --}}
             <x-mary-menu activate-by-route>
