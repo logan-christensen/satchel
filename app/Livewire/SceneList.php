@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Project;
+use App\Services\AiService;
 use Livewire\Component;
 
 class SceneList extends Component
@@ -89,5 +90,20 @@ class SceneList extends Component
     {
         $this->sceneOrder = $index;
         $this->showAddScene = true;
+    }
+
+    public function generateSummary(int $sceneId)
+    {
+        $scene = $this->project->scenes()->find($sceneId);
+
+        $aiService = new AiService();
+        $aiService->addMessage(get_prompt('generate-scene-summary', [
+            'scene_title' => $scene->name,
+            'scene' => $scene->getTextContent()
+        ]));
+        $aiService->getResponse();
+        $scene->summary = $aiService->getLastMessage();
+        $scene->save();
+        $this->dispatch('sceneSelected', $sceneId);
     }
 }

@@ -1,0 +1,8 @@
+Please Generate a summary of the following scene:
+
+<scene title="{{scene_title}}">
+{{scene}}
+</scene>
+
+Please return only the summary of the scene.  Aim for 500 words or less.
+Assume that the scene is a part of a larger story and that the reader is familiar with the characters and setting.

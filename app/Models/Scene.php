@@ -52,4 +52,9 @@ class Scene extends Model
         $image->toPng()->save($imagePath);
         return $imagePath;
     }
+
+    public function getTextContent(): string
+    {
+        return strip_tags($this->content);
+    }
 }

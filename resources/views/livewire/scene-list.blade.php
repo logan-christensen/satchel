@@ -27,6 +27,7 @@
                                              icon="o-ellipsis-vertical">
                                 {{-- By default any click closes dropdown --}}
                                 <x-mary-menu-item title="Delete Scene" wire:click="deleteScene({{ $scene->id}})" />
+                                <x-mary-menu-item title="(Re)Generate Summary" wire:click="generateSummary({{ $scene->id}})" />
 
                                 <x-mary-menu-item title="Insert Scene Before" wire:click="insertSceneAtIndex({{ $scene->order }})" />
                                 <x-mary-menu-item title="Insert Scene After" wire:click="insertSceneAtIndex({{ $scene->order + 1 }})" />
